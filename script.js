@@ -2,7 +2,7 @@
 function createStars() {
     const starsContainer = document.querySelector('.stars');
     const numberOfStars = 200;
-    
+
     for (let i = 0; i < numberOfStars; i++) {
         const star = document.createElement('div');
         star.className = 'star';
@@ -17,7 +17,7 @@ function createStars() {
 function createFloatingParticles() {
     const particlesContainer = document.querySelector('.floating-particles');
     const numberOfParticles = 50;
-    
+
     for (let i = 0; i < numberOfParticles; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
@@ -34,11 +34,11 @@ function handleParallax() {
     const scrolled = window.pageYOffset;
     const nebula = document.querySelector('.nebula-bg');
     const stars = document.querySelector('.stars');
-    
+
     if (nebula) {
         nebula.style.transform = `translateY(${scrolled * 0.2}px)`;
     }
-    
+
     if (stars) {
         stars.style.transform = `translateY(${scrolled * 0.1}px)`;
     }
@@ -47,7 +47,7 @@ function handleParallax() {
 // Configurar observador de intersección para animaciones de entrada
 function setupIntersectionObserver() {
     const cards = document.querySelectorAll('.product-card');
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -59,7 +59,7 @@ function setupIntersectionObserver() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     });
-    
+
     cards.forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(50px)';
@@ -71,14 +71,14 @@ function setupIntersectionObserver() {
 // Efectos adicionales de hover para las tarjetas
 function setupCardHoverEffects() {
     const cards = document.querySelectorAll('.product-card');
-    
+
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             // Background is primarily handled by CSS now for a more consistent theme
             // But if specific JS-based hover states are needed, they would go here
-            // this.style.background = 'rgba(255, 255, 255, 0.08)'; 
+            // this.style.background = 'rgba(255, 255, 255, 0.08)';
         });
-        
+
         card.addEventListener('mouseleave', function() {
             // this.style.background = 'rgba(255, 255, 255, 0.05)';
         });
@@ -88,17 +88,17 @@ function setupCardHoverEffects() {
 // Función para suavizar el scroll
 function smoothScroll() {
     const buttons = document.querySelectorAll('.cta-button');
-    
+
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            
+
             // Efecto visual de click (maintained for professional feel)
             this.style.transform = 'scale(0.98)'; // Slightly smaller scale
             setTimeout(() => {
                 this.style.transform = 'scale(1)'; // Return to normal
             }, 100);
-            
+
             // Aquí puedes agregar la lógica de navegación o contacto
             console.log('Botón clickeado:', this.textContent);
         });
@@ -124,19 +124,19 @@ function initializeApp() {
     // Crear elementos visuales
     createStars();
     createFloatingParticles();
-    
+
     // Configurar efectos de scroll optimizados
     window.addEventListener('scroll', throttle(handleParallax, 16));
-    
+
     // Configurar animaciones de entrada
     setupIntersectionObserver();
-    
+
     // Configurar efectos de hover
     setupCardHoverEffects();
-    
+
     // Configurar interacciones de botones
     smoothScroll();
-    
+
     // The company name animation is now purely CSS-based.
 }
 
