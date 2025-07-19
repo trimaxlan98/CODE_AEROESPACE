@@ -74,35 +74,15 @@ function setupCardHoverEffects() {
     
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
-            this.style.background = 'rgba(255, 255, 255, 0.08)';
+            // Background is primarily handled by CSS now for a more consistent theme
+            // But if specific JS-based hover states are needed, they would go here
+            // this.style.background = 'rgba(255, 255, 255, 0.08)'; 
         });
         
         card.addEventListener('mouseleave', function() {
-            this.style.background = 'rgba(255, 255, 255, 0.05)';
+            // this.style.background = 'rgba(255, 255, 255, 0.05)';
         });
     });
-}
-
-// Efecto de escritura para el nombre de la empresa
-function typewriterEffect() {
-    const companyName = document.querySelector('.company-name');
-    const text = companyName.textContent;
-    
-    // Solo ejecutar si el texto es el placeholder
-    if (text === '[NOMBRE EMPRESA]') {
-        companyName.textContent = '';
-        let i = 0;
-        
-        function typeWriter() {
-            if (i < text.length) {
-                companyName.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-        
-        setTimeout(typeWriter, 1000);
-    }
 }
 
 // Función para suavizar el scroll
@@ -113,10 +93,10 @@ function smoothScroll() {
         button.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Efecto visual de click
-            this.style.transform = 'scale(0.95)';
+            // Efecto visual de click (maintained for professional feel)
+            this.style.transform = 'scale(0.98)'; // Slightly smaller scale
             setTimeout(() => {
-                this.style.transform = 'scale(1.05)';
+                this.style.transform = 'scale(1)'; // Return to normal
             }, 100);
             
             // Aquí puedes agregar la lógica de navegación o contacto
@@ -157,8 +137,7 @@ function initializeApp() {
     // Configurar interacciones de botones
     smoothScroll();
     
-    // Efecto de escritura (opcional)
-    typewriterEffect();
+    // The company name animation is now purely CSS-based.
 }
 
 // Inicializar cuando el DOM esté listo

@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: #0a0a0a;
+    background: #000000; /* Darker background */
     color: #ffffff;
     overflow-x: hidden;
 }
@@ -20,20 +20,20 @@ body {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(ellipse at 20% 30%, rgba(147, 51, 234, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 20%, rgba(236, 72, 153, 0.2) 0%, transparent 50%),
-        radial-gradient(ellipse at 30% 80%, rgba(16, 185, 129, 0.2) 0%, transparent 50%),
-        linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+        radial-gradient(ellipse at 20% 30%, rgba(200, 200, 255, 0.15) 0%, transparent 50%), /* Light blue/white glow */
+        radial-gradient(ellipse at 80% 70%, rgba(255, 255, 255, 0.15) 0%, transparent 50%), /* White glow */
+        radial-gradient(ellipse at 50% 20%, rgba(220, 220, 220, 0.1) 0%, transparent 50%), /* Lighter grey glow */
+        radial-gradient(ellipse at 30% 80%, rgba(150, 150, 200, 0.1) 0%, transparent 50%), /* Subtle blue glow */
+        linear-gradient(135deg, #000000 0%, #0d0d0d 50%, #1a1a1a 100%); /* Dark gradient */
     z-index: -1;
-    animation: nebula-drift 20s ease-in-out infinite;
+    animation: nebula-drift 25s ease-in-out infinite; /* Slightly slower drift */
 }
 
 @keyframes nebula-drift {
     0%, 100% { transform: translateX(0px) translateY(0px); }
-    25% { transform: translateX(-20px) translateY(-10px); }
-    50% { transform: translateX(20px) translateY(-20px); }
-    75% { transform: translateX(-10px) translateY(10px); }
+    25% { transform: translateX(-15px) translateY(-8px); }
+    50% { transform: translateX(15px) translateY(-15px); }
+    75% { transform: translateX(-8px) translateY(8px); }
 }
 
 /* Estrellas */
@@ -49,16 +49,16 @@ body {
 
 .star {
     position: absolute;
-    width: 2px;
-    height: 2px;
+    width: 1.5px; /* Slightly smaller stars */
+    height: 1.5px;
     background: #ffffff;
     border-radius: 50%;
-    animation: twinkle 3s infinite;
+    animation: twinkle 4s infinite; /* Slower twinkle */
 }
 
 @keyframes twinkle {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.8; } /* Less intense twinkle */
 }
 
 /* Partículas flotantes */
@@ -74,18 +74,18 @@ body {
 
 .particle {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    background: rgba(147, 51, 234, 0.6);
+    width: 3px; /* Slightly smaller particles */
+    height: 3px;
+    background: rgba(255, 255, 255, 0.4); /* White, more subtle particles */
     border-radius: 50%;
-    animation: float 8s infinite ease-in-out;
+    animation: float 10s infinite ease-in-out; /* Slower float */
 }
 
 @keyframes float {
     0%, 100% { transform: translateY(0px) translateX(0px); }
-    25% { transform: translateY(-20px) translateX(10px); }
-    50% { transform: translateY(-40px) translateX(-10px); }
-    75% { transform: translateY(-20px) translateX(5px); }
+    25% { transform: translateY(-15px) translateX(8px); }
+    50% { transform: translateY(-30px) translateX(-8px); }
+    75% { transform: translateY(-15px) translateX(4px); }
 }
 
 /* Layout principal */
@@ -98,92 +98,75 @@ body {
 /* Header */
 .header {
     text-align: center;
-    padding: 60px 0;
-    background: linear-gradient(45deg, rgba(147, 51, 234, 0.1), rgba(59, 130, 246, 0.1));
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 80px 0; /* More padding for professional look */
+    background: linear-gradient(45deg, rgba(20, 20, 20, 0.2), rgba(30, 30, 30, 0.2)); /* Darker, subtle gradient */
+    backdrop-filter: blur(15px); /* Stronger blur */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* More subtle border */
 }
 
 .company-name {
-    font-size: 3.5rem;
+    font-size: 4.5rem; /* Larger font size */
     font-weight: bold;
-    background: linear-gradient(45deg, #9333ea, #3b82f6, #ec4899);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff; /* White color */
     margin-bottom: 20px;
-    text-shadow: 0 0 30px rgba(147, 51, 234, 0.5);
-}
-
-.tagline {
-    font-size: 1.2rem;
-    color: #a0a0a0;
-    margin-bottom: 40px;
-}
-
-.slogan {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #ffffff;
-    margin-bottom: 20px;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-    display: flex;
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.3); /* White glow */
+    display: flex; /* For word animation */
     justify-content: center;
-    gap: 15px;
+    gap: 20px; /* Space between words */
 }
 
-.slogan span {
+.company-name span {
     opacity: 0;
-    animation: fadeInWord 0.8s ease-out forwards;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 1s ease-out forwards; /* Professional fade-in and slide-up */
 }
 
-.slogan span:nth-child(1) { animation-delay: 0.2s; }
-.slogan span:nth-child(2) { animation-delay: 0.4s; }
-.slogan span:nth-child(3) { animation-delay: 0.6s; }
-.slogan span:nth-child(4) { animation-delay: 0.8s; }
+.company-name span:nth-child(1) { animation-delay: 0.5s; }
+.company-name span:nth-child(2) { animation-delay: 0.8s; }
 
-@keyframes fadeInWord {
+
+@keyframes fadeInSlideUp {
     from {
         opacity: 0;
-        transform: translateY(20px) scale(0.95);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 }
 
 .subtitle {
-    font-size: 1.5rem;
-    color: #ffffff;
+    font-size: 1.6rem; /* Slightly larger subtitle */
+    color: #cccccc; /* Lighter grey for subtitle */
     margin-bottom: 30px;
 }
 
 /* Grid de productos */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
-    padding: 80px 0;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* Larger min-width for cards */
+    gap: 50px; /* More gap */
+    padding: 100px 0; /* More padding */
 }
 
 /* Tarjetas de productos */
 .product-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    padding: 40px;
+    background: rgba(10, 10, 10, 0.6); /* Darker, more opaque background */
+    border-radius: 25px; /* More rounded corners */
+    padding: 50px; /* More padding */
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    backdrop-filter: blur(15px); /* Stronger blur */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* More visible border */
+    transition: all 0.4s ease; /* Slower transition */
     cursor: pointer;
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(147, 51, 234, 0.3);
-    border-color: rgba(147, 51, 234, 0.5);
+    transform: translateY(-15px); /* More pronounced lift */
+    box-shadow: 0 25px 50px rgba(255, 255, 255, 0.08); /* More diffused white shadow */
+    border-color: rgba(255, 255, 255, 0.4); /* White hover border */
 }
 
 .product-card::before {
@@ -193,15 +176,15 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(147, 51, 234, 0.1), transparent);
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.08), transparent); /* White shimmer */
     transform: rotate(45deg);
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     opacity: 0;
 }
 
 .product-card:hover::before {
     opacity: 1;
-    animation: shimmer 1.5s ease-in-out;
+    animation: shimmer 1.8s ease-in-out; /* Slower shimmer */
 }
 
 @keyframes shimmer {
@@ -211,119 +194,155 @@ body {
 
 /* Iconos de productos */
 .product-icon {
-    font-size: 4rem;
-    margin-bottom: 20px;
+    font-size: 4.5rem; /* Slightly larger icons */
+    margin-bottom: 25px;
     text-align: center;
+    color: #ffffff; /* Default white icon color */
 }
 
-.xr-icon { color: #9333ea; }
-.mobile-icon { color: #3b82f6; }
-.server-icon { color: #10b981; }
-.web-icon { color: #f59e0b; }
-.bigdata-icon { color: #ef4444; }
-.datascience-icon { color: #8b5cf6; }
-.ai-icon { color: #06b6d4; }
-.agents-icon { color: #f97316; }
-.automation-icon { color: #84cc16; }
-.iot-icon { color: #ec4899; }
-.training-icon { color: #14b8a6; }
+/* Specific icon colors, subtly different white/grey tones */
+.xr-icon { color: #f0f0f0; } 
+.mobile-icon { color: #e0e0e0; }
+.server-icon { color: #d0d0d0; }
+.web-icon { color: #c0c0c0; }
+.bigdata-icon { color: #b0b0b0; }
+.datascience-icon { color: #a0a0a0; }
+.ai-icon { color: #909090; }
+.agents-icon { color: #808080; }
+.automation-icon { color: #707070; }
+.iot-icon { color: #606060; }
+.training-icon { color: #505050; }
 
 /* Contenido de tarjetas */
 .product-title {
-    font-size: 1.8rem;
+    font-size: 2rem; /* Larger title */
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
 .product-description {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #b0b0b0;
-    margin-bottom: 20px;
+    font-size: 1.1rem; /* Slightly larger description */
+    line-height: 1.7;
+    color: #c0c0c0; /* Lighter grey for description */
+    margin-bottom: 25px;
 }
 
 .features-list {
     list-style: none;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .features-list li {
-    padding: 8px 0;
+    padding: 10px 0;
     position: relative;
-    padding-left: 25px;
+    padding-left: 30px; /* More padding */
+    font-size: 1rem;
 }
 
 .features-list li::before {
-    content: '✦';
+    content: '→'; /* More professional bullet */
     position: absolute;
     left: 0;
-    color: #9333ea;
+    color: #ffffff; /* White bullet */
     font-weight: bold;
 }
 
 /* Botones */
 .cta-button {
     display: inline-block;
-    background: linear-gradient(45deg, #9333ea, #3b82f6);
+    background: linear-gradient(45deg, #202020, #404040); /* Darker, metallic gradient */
     color: white;
-    padding: 12px 30px;
-    border-radius: 25px;
+    padding: 14px 35px; /* Larger padding */
+    border-radius: 30px; /* More rounded */
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
     cursor: pointer;
     width: 100%;
     text-align: center;
+    text-transform: uppercase; /* Uppercase for professional look */
+    letter-spacing: 1px;
 }
 
 .cta-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(147, 51, 234, 0.4);
+    transform: scale(1.03); /* Subtle scale */
+    box-shadow: 0 12px 25px rgba(255, 255, 255, 0.05); /* Subtle white shadow */
+    background: linear-gradient(45deg, #303030, #505050); /* Slightly lighter on hover */
 }
 
 /* Footer */
 .footer {
     text-align: center;
-    padding: 60px 0;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 80px 0; /* More padding */
+    background: rgba(0, 0, 0, 0.9); /* Darker footer */
+    backdrop-filter: blur(15px); /* Stronger blur */
+    border-top: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
+    color: #b0b0b0; /* Lighter grey text */
 }
 
 .contact-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Larger min-width for contact items */
+    gap: 40px; /* More gap */
+    margin-bottom: 50px;
 }
 
 .contact-item {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03); /* More subtle background */
+    padding: 25px; /* More padding */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Subtle border */
 }
 
 .contact-item h3 {
-    color: #9333ea;
-    margin-bottom: 10px;
+    color: #ffffff; /* White headings */
+    margin-bottom: 12px;
+}
+
+.contact-item p {
+    color: #c0c0c0; /* Lighter grey text */
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .company-name {
-        font-size: 2.5rem;
+        font-size: 3rem;
+        gap: 10px;
     }
     
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
     .products-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 40px 0;
+        gap: 40px;
+        padding: 60px 0;
     }
     
     .product-card {
-        padding: 30px;
+        padding: 40px;
+    }
+
+    .product-title {
+        font-size: 1.8rem;
+    }
+
+    .product-description {
+        font-size: 1rem;
+    }
+
+    .features-list li {
+        font-size: 0.95rem;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+    }
+
+    .contact-info {
+        gap: 30px;
     }
 }
